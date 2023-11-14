@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        System.out.println("Welcome! Select any number");
+        Scanner inputScanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        int num1 = inputScanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = inputScanner.nextInt();
+
+        System.out.print("Select the operation that you want to perform: (+, -, *, /, %): ");
+        String operand = inputScanner.next();
+        int result = calculate(num1, num2, operand);
+        System.out.println("The result for the given operation is: " + result);
+    }
+
+    public static int calculate(int num1, int num2, String operand) {
+        int result = 0;
+        switch (operand) {
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "*":
+                result = num1 * num2;
+                break;
+            case "/":
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Cannot divide by zero. Please enter a non-zero divisor.");
+                }
+                break;
+            case "%":
+                result = num1 % num2;
+                break;
+            default:
+                System.out.println("Invalid operation");
+        }
+        return result;
+    }
+}
+
+   
